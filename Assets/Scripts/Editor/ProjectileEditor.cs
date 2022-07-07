@@ -11,10 +11,11 @@ public class ProjectileEditor : Editor
         Gizmos.DrawSphere(projectile.transform.position, projectile.damageRadius);
     }
 
-    void OnSceneGUI()
+    public override void OnInspectorGUI()
     {
         var projectile = target as Projectile;
         var transform = projectile.transform;
-        projectile.damageRadius = Handles.RadiusHandle(transform.rotation, transform.position, projectile.damageRadius);
+
+        projectile.damageRadius = EditorGUILayout.Slider("Damage Radius", projectile.damageRadius, 0, 100);
     }
 }

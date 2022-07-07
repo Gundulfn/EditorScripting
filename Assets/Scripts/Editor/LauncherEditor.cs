@@ -44,6 +44,8 @@ public class LauncherEditor : Editor
         DrawDefaultInspector();
         Launcher launcher = (Launcher)target;
 
+        GUILayout.BeginHorizontal();
+
         if (GUILayout.Button("Fire"))
         {
             launcher.Fire();
@@ -53,6 +55,8 @@ public class LauncherEditor : Editor
         {
             launcher.Delete();
         }
+        
+        GUILayout.EndHorizontal();
     }
 
     void OnSceneGUI()
