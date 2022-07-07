@@ -86,13 +86,32 @@ public class MenuItems
     [MenuItem("Assets/Get Object Name", true)]
     private static void PrintPrefabObjName()
     {
-        if(Selection.activeObject.GetType() == typeof(GameObject)) //if Selection.activeObject is a prefab
+        if (Selection.activeObject.GetType() == typeof(GameObject)) //if Selection.activeObject is a prefab
         {
             Debug.Log("PREFAB: " + Selection.activeObject.name);
         }
-        else
+    }
+
+    [MenuItem("SceneInfo/Get Scene Name", false, 1)]
+    private static void SceneInfoOption()
+    {
+        Debug.Log("Scene Name: " + EditorSceneManager.GetActiveScene().name);
+    }
+
+    [MenuItem("SceneInfo/Get Cube Count", false, 2)]
+    private static void SceneInfoOption2()
+    {
+        MeshFilter[] meshFilters = GameObject.FindObjectsOfType<MeshFilter>();
+
+        int count = 0;
+        for(int i = 0; i < meshFilters.Length; i++)
         {
-            Debug.Log("Not a prefab: " + Selection.activeObject.name);
+            if(meshFilters[i].sharedMesh.name == "Cube")
+            {
+                count++;
+            }
         }
+
+        Debug.Log("Cube Count: " + count);
     }
 }
