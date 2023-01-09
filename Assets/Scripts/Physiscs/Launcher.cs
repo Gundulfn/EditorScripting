@@ -6,6 +6,8 @@ public class Launcher : MonoBehaviour
     public Rigidbody projectile;
     public Vector3 offset = Vector3.forward;
     
+    public float estimatedTime = 2f;
+    
     [Range(0, 100)] 
     public float velocity = 10;
 
