@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using System.Linq;
 
 public class MenuItems
 {
     /* HotKeys Character Keys
-        % – CTRL on Windows / CMD on OSX
-        # – Shift
-        & – Alt
-        LEFT/RIGHT/UP/DOWN – Arrow keys
-        F1…F2 – F keys
+        % means click/hold CTRL on Windows / CMD on OSX
+        # means click/hold Shift
+        & means click/hold Alt
+        LEFT/RIGHT/UP/DOWN means click/hold Arrow keys
+        F1…F2 means click/hold F keys
         HOME, END, PGUP, PGDN
-        _ - Uppercase(Ex: _g = G)
+        _ means click/hold Uppercase(Ex: _g = G)
     */
     // NOTE: Custom HotKeys could conflict with Unity's Default HotKeys
 
@@ -101,17 +102,7 @@ public class MenuItems
     [MenuItem("SceneInfo/Get Cube Count", false, 2)]
     private static void SceneInfoOption2()
     {
-        MeshFilter[] meshFilters = GameObject.FindObjectsOfType<MeshFilter>();
-
-        int count = 0;
-        for(int i = 0; i < meshFilters.Length; i++)
-        {
-            if(meshFilters[i].sharedMesh.name == "Cube")
-            {
-                count++;
-            }
-        }
-
-        Debug.Log("Cube Count: " + count);
+        MeshFilter[] meshFilters = GameObject.FindObjectsOfType<MeshFilter>().Where(meshFilter => meshFilter.sharedMesh.name == "Cube").ToArray();
+        Debug.Log("Cube Count: " + meshFilters.Length);
     }
 }
