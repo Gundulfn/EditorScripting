@@ -27,7 +27,7 @@ public class LauncherEditor : Editor
                 velocity += Physics.gravity * physicsStep;
             }
 
-            using (new Handles.DrawingScope(Color.magenta))
+            using (new Handles.DrawingScope(launcher.drawColor))
             {
                 Handles.DrawAAPolyLine(positions.ToArray());
                 Gizmos.DrawWireSphere(positions[positions.Count - 1], 0.125f);
