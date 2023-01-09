@@ -10,13 +10,18 @@ public class Launcher : MonoBehaviour, ISerializationCallbackReceiver
     
     public Vector3 offset = Vector3.forward;
     
-    public float estimatedTime = 2f;
+    public float estimatedTime;
     public Color drawColor = Color.magenta;
 
     [Range(0, 100)] 
     public float velocity = 10;
 
     private Queue<Rigidbody> instantiates = new Queue<Rigidbody>();
+
+    public void ValidateValues()
+    {
+        estimatedTime = Mathf.Max(estimatedTime, 0);
+    }
 
     public void Fire()
     {

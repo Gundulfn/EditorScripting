@@ -8,7 +8,8 @@ public class LauncherEditor : Editor
     [DrawGizmo(GizmoType.Pickable | GizmoType.Selected)]
     static void DrawGizmosSelected(Launcher launcher, GizmoType gizmoType)
     {
-
+        launcher.ValidateValues();
+        
         var offsetPosition = launcher.transform.TransformPoint(launcher.offset);
         Handles.DrawDottedLine(launcher.transform.position, offsetPosition, 3);
         Handles.Label(offsetPosition, "Offset");

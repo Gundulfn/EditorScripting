@@ -310,10 +310,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7280054581185141013, guid: c87231382ae9c4cf78f624e72e862e8d, type: 3}
   projectile: {fileID: 7280054581185141023, guid: c87231382ae9c4cf78f624e72e862e8d, type: 3}
-  offset: {x: 0, y: 7, z: 0}
-  estimatedTime: 4
-  drawColor: {r: 0.24634218, g: 1, b: 0, a: 1}
-  velocity: 22
+  offset: {x: 0, y: 0, z: 0}
+  estimatedTime: 4.54
+  drawColor: {r: 0, g: 1, b: 0.9105978, a: 1}
+  velocity: 30
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
